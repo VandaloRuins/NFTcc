@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residency</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap">
+    <link rel="stylesheet" href="residency.css">
+</head>
+<body class="residency-body">
+    <header>
+        <div class="header-content">
+            <a href="index.html">
+                <img src="nftcclogo.png" alt="NFT Logo" class="logo">
+            </a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="intro-text">
+            <h1>Past Events</h1> <!-- Changed title from "Residency Program" to "Past Events" -->
+        </div>
+        <div class="main-content">
+            <div class="left-column">
+                <div class="logo-container" onclick="showCityInfo('milan')">
+                    <img src="nftccmilanlogo.png" alt="NFT Milan Logo" class="residency-logo">
+                </div>
+                <div class="logo-container" onclick="showCityInfo('naples')">
+                    <img src="nftccnapleslogo.png" alt="NFT Naples Logo" class="residency-logo">
+                </div>
+                <div class="logo-container" onclick="showCityInfo('rome')">
+                    <img src="nftccromelogo.png" alt="NFT Rome Logo" class="residency-logo">
+                </div>
+            </div>
+            <div class="right-column">
+                <div id="city-info" class="city-info">
+                    <p>Click on a logo to see more information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="residency.js"></script>
+</body>
+</html>

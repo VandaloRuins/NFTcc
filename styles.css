@@ -1,0 +1,204 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Rubik Mono One', sans-serif; /* Default font for the whole page */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    background: transparent;
+    text-align: center;
+}
+
+.header-content {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 100px; /* Increase logo size */
+    margin-bottom: 10px;
+}
+
+.index-page .buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px; /* Increase gap between buttons */
+    z-index: 30; /* Ensure buttons are above the carousel */
+    flex-direction: row; /* Default to row for desktop */
+}
+
+.index-page .nav-button {
+    color: white;
+    background: rgba(0, 0, 0, 0.6); /* Black with 60% opacity */
+    border: none;
+    width: 150px; /* Fixed square size */
+    height: 150px; /* Fixed square size */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center;
+    align-items: center;
+    font: inherit; /* Inherit the font from the body */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none; /* Remove underline for anchor elements */
+}
+
+.index-page .subtitle {
+    font-size: 12px; /* Smaller font for subtitle */
+    opacity: 0.8; /* Slightly less prominent */
+}
+
+.index-page .nav-button:hover {
+    background-color: rgba(255, 255, 255, 1); /* White with 100% opacity */
+    color: black;
+}
+
+.index-page .carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+    z-index: 10;
+}
+
+.index-page .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.index-page .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.index-page .carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.index-page .video-overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.index-page .video-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)); /* Black gradient with 20% opacity */
+    z-index: 2;
+}
+
+.index-page .video-overlay video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    
+    .index-page .carousel {
+        display: block; /* Ensure the carousel is still rendered to apply background */
+        background-color: black; /* Set fallback background color */
+        height: 100vh; /* Full screen height */
+    }
+
+    .index-page .video-overlay {
+        background-color: black; /* Or any preferred fallback color */
+    }    
+    
+    .index-page .buttons-container {
+        gap: 20px; /* Increase gap between buttons */
+        flex-direction: column; /* Stack buttons vertically on tablets and below */
+    }
+
+    .index-page .nav-button {
+        width: 160px; /* Slightly smaller square size for tablets */
+        height: 160px;
+        font-size: 16px;
+    }
+
+    .carousel {
+        display: none; /* Hide the carousel */
+    }
+
+    .index-page .subtitle {
+        display: none; /* Hide subtitles on smaller screens */
+    }
+
+    .logo {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+    .index-page .buttons-container {
+        gap: 20px; /* Increase gap between buttons */
+        flex-direction: column; /* Stack buttons vertically in portrait mode */
+    }
+
+    .index-page .nav-button {
+        width: 140px; /* Slightly smaller square size for mobile */
+        height: 140px;
+        font-size: 16px;
+    }
+
+    .index-page .subtitle {
+        display: none; /* Hide subtitles on smaller screens */
+    }
+
+    .logo {
+        position: fixed; /* Ensure it is fixed to the viewport */
+        top: 50%; /* Center vertically relative to the viewport */
+        left: 10px; /* Align to the left edge */
+        transform: translateY(-50%); /* Correct for vertical centering */
+        z-index: 100; /* Ensure it's above other elements */
+    }
+}
+@media (max-width: 480px) and (orientation: landscape) {
+    .index-page .buttons-container {
+        gap: 10px; /* Adjust gap as needed */
+        flex-direction: row; /* Stack buttons horizontally in landscape mode */
+    }
+
+    .index-page .nav-button {
+        width: 120px; /* Adjust size for landscape mode */
+        height: 120px;
+        font-size: 14px;
+    }
+}

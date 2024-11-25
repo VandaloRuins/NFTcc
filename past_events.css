@@ -1,0 +1,118 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrolling on both axes */
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    background: black;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding-top: 120px; /* Space for the fixed header */
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent any scrolling within content */
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 120px); /* Fill remaining space after header */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Styling for the grey box with video and text */
+.right-column {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start (left) */
+    align-items: center; /* Center items vertically */
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.video-carousel {
+    width: 50%; /* Video takes up 50% of the right-column */
+    margin-right: 20px; /* Space between video and text */
+}
+
+.city-info {
+    width: 50%; /* Text takes up the remaining 50% */
+    text-align: left; /* Align text to the left */
+    font-size: 18px;
+    color: white;
+    display: flex;
+    align-items: center; /* Center text vertically */
+}
+
+.video-carousel video {
+    width: 100%;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .right-column {
+        flex-direction: column;
+    }
+
+    .video-carousel, .city-info {
+        width: 100%;
+    }
+
+    .city-info {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
